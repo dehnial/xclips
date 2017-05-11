@@ -1,4 +1,4 @@
-.navbar {
+.navbar, footer {
     background: #f8f9fa;
     color: #667189;
     padding: 1rem;
@@ -6,4 +6,24 @@
 
 .navbar-brand {
     color: #50596c;
+}
+
+.navbar-section i {
+    margin-right: 8px;
+}
+
+footer {
+    text-align: right;
+    color: #acb3c2;
+}
+
+footer > .logo > img {
+    height: 7rem;
+    margin-left: 12px;
+}
+
+footer > section {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
 }
