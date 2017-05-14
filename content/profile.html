@@ -1,4 +1,42 @@
 <script>
-    console.log(xapi.currentXUID);
+    xapi.getProfile(xapi.currentXUID, function (profile) {
+        // set gamer picture
+        $("#imgGamerpic").attr("src", profile.GameDisplayPicRaw);
+
+        // set gamer tag
+        $("#gamertag").text(profile.Gamertag);
+
+        // set gamerscore
+        $("#score").text(profile.Gamerscore);
+
+        // set tenure
+        $("#sectProfile > figure").attr("data-badge", profile.TenureLevel);
+
+        // set tier
+        if (profile.AccountTier == "Gold") {
+            $("#sectProfile > figure").addClass("gold");
+        }
+    });
+
+    // get the friends
+
+    // get the activity
 
 </script>
+
+<div id="profile">
+    <section id="sectProfile">
+        <figure class="avatar badge">
+            <img id="imgGamerpic" />
+        </figure>
+        <div id="info">
+            <h4 id="gamertag"></h4>
+            <h5 id="score"></h5>
+        </div>
+
+    </section>
+
+    <section id="sectFriends"></section>
+</div>
+
+<section id="sectActivity"></section>

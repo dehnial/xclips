@@ -44,4 +44,8 @@ window.xapi = {
         this.makeRequest(`/v2/xboxone-gold-lounge`, success, fail);
     },
 
+    getProfile: function (xuid, success, fail) {
+        this.makeRequest(`/v2/${xuid}/profile`, success, fail);
+    },
+
 };
