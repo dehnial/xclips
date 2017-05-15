@@ -69,6 +69,13 @@
 
         };
         $("#btnGamertagSearch").click(gamertagSearch_click);
+
+        $("#txtGamertag").keypress(function (e) {
+            if (e.which == 13) {
+                $("#txtGamertag").blur();
+                $("#btnGamertagSearch").click();
+            }
+        });
     </script>
 </body>
 

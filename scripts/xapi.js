@@ -9,8 +9,7 @@ window.xapi = {
         $.ajax({
             url: 'https://xboxapi.com' + endpoint,
             headers: {
-                'X-Auth': this.apiKey,
-                'Content-Type': 'application/json'
+                'X-Auth': this.apiKey
             }
         })
             .done(function (data) { success(data); })
@@ -46,6 +45,10 @@ window.xapi = {
 
     getProfile: function (xuid, success, fail) {
         this.makeRequest(`/v2/${xuid}/profile`, success, fail);
+    },
+
+    getFriends: function (xuid, success, fail) {
+        this.makeRequest(`/v2/${xuid}/friends`, success, fail);
     },
 
 };

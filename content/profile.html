@@ -18,9 +18,17 @@
         }
     });
 
-    // get the friends
+    // get the friends 
+    xapi.getFriends(xapi.currentXUID, function (data) {
+        console.log(data);
+        //get highest ranked by gamerscore
+    });
 
     // get the activity
+    xapi.getActivity(xapi.currentXUID, function (data) {
+        console.log(data);
+        // split clips with achievements
+    });
 
 </script>
 
