@@ -19,9 +19,34 @@
     });
 
     // get the friends 
-    xapi.getFriends(xapi.currentXUID, function (data) {
-        console.log(data);
+    xapi.getFriends(xapi.currentXUID, function (friends) {
+
         //get highest ranked by gamerscore
+        friends.sort(function (a, b) {
+            if (a.Gamerscore < b.Gamerscore)
+                return 1;
+            if (a.Gamerscore > b.Gamerscore)
+                return -1;
+            return 0;
+        });
+
+        var tableHTML = "";
+        var leaderboardCount = 1;
+        for (var count = 0; count < friends.length; count++) {
+            if (leaderboardCount > 3) {
+                break;
+            }
+
+            tableHTML = tableHTML +
+                `<tr>
+                    <td><i class="material-icons">stars</i></td>
+                    <td>${friends[count].Gamertag}</td>
+                    <td>${friends[count].Gamerscore}</td>
+                </tr>`;
+            leaderboardCount++;
+        };
+
+        $("#friends-leaderboard").html(tableHTML);
     });
 
     // get the activity
@@ -44,7 +69,40 @@
 
     </section>
 
-    <section id="sectFriends"></section>
+    <section id="sectFriends">
+        <table class="table">
+            <tbody id="friends-leaderboard">
+            </tbody>
+        </table>
+    </section>
 </div>
 
-<section id="sectActivity"></section>
+<section id="sectActivity">
+    <ul class="tab tab-block">
+        <li class="tab-item active">
+            <a href="#">
+            Activity
+            </a>
+        </li>
+        <li class="tab-item">
+            <a href="#">
+            Captures
+            </a>
+        </li>
+    </ul>
+
+    <!--testing-->
+    <figure class="figure">
+        <img src="img/osx-yosemite-2.jpg" class="img-responsive ..." alt="..." />
+    </figure>
+    <figure class="figure">
+        <img src="img/osx-yosemite-2.jpg" class="img-responsive ..." alt="..." />
+    </figure>
+    <figure class="figure">
+        <img src="img/osx-yosemite-2.jpg" class="img-responsive ..." alt="..." />
+    </figure>
+    <figure class="figure">
+        <img src="img/osx-yosemite-2.jpg" class="img-responsive ..." alt="..." />
+    </figure>
+    <!--testing-->
+</section>

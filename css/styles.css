@@ -37,6 +37,10 @@ footer > section {
     flex-grow: 1;
 }
 
+#profile > #sectFriends {
+    flex-grow: 1;
+}
+
 #profile > #sectProfile > figure {
     margin: 1.5rem;
     display: inline-block;
@@ -50,6 +54,11 @@ footer > section {
     vertical-align: middle;
 }
 
+#profile > #sectProfile > #info > #score {
+    position: relative;
+    padding-left: 2.5rem;
+}
+
 #profile > #sectProfile > #info > #score::before {
     content: "G";
     padding-left: 0.5rem;
@@ -59,6 +68,9 @@ footer > section {
     background: #BBBBBB;
     border-radius: 1rem;
     color: white;
+    position: absolute;
+    top: 0.2rem;
+    left: 0;
 }
 
 #sectProfile .badge[data-badge]::after {
@@ -75,4 +87,26 @@ footer > section {
 
 #sectProfile .avatar.gold {
     background: #ffcc00;
+}
+
+#profile > #sectFriends .table td {
+    border-bottom: 0;
+}
+
+#profile > #sectFriends .table tr:nth-of-type(1) i {
+    color: #eedb08;
+}
+
+#profile > #sectFriends .table tr:nth-of-type(2) i {
+    color: #757575;
+}
+
+#profile > #sectFriends .table tr:nth-of-type(3) i {
+    color: #ae6c3a;
+}
+
+@media (max-width: 410px) {
+    #profile > #sectFriends .table tr td:last-of-type {
+        display: none;
+    }
 }
