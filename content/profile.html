@@ -102,6 +102,7 @@
 
     var hideVideoPlayer = function () {
         $("#videoContainer").css("visibility", "hidden");
+        $('video').trigger('pause');
         /*$("#player video").html("");*/
     }
 
