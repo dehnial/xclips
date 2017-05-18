@@ -59,7 +59,7 @@
                 captureItemHTML += `
                     <figure class="figure capture">
                         <img src="${activity.clipThumbnail}" class="img-responsive activity-item"/>
-                        <span class="play-icon"><i class="material-icons">play_circle_outline</i></span>
+                        <span class="play-icon" onclick="showVideo('${activity.downloadUri}')"><i class="material-icons">play_circle_outline</i></span>
                     </figure>`;
             }
             else if (activity.activityItemType == "Achievement") {
@@ -94,6 +94,16 @@
 
     $("#activity-tab").click(showActivity);
     $("#capture-tab").click(showCaptures);
+
+    var showVideo = function (url) {
+        $("#videoContainer").css("visibility", "visible");
+        $("#player video").html(`<source src="${url}" type="video/mp4">`);
+    }
+
+    var hideVideoPlayer = function () {
+        $("#videoContainer").css("visibility", "hidden");
+        /*$("#player video").html("");*/
+    }
 
 </script>
 
@@ -134,3 +144,10 @@
     <div id="activities"></div>
     <div id="captures"></div>
 </section>
+
+<div id="videoContainer" onclick="hideVideoPlayer()">
+    <div class="card" id="player">
+        <video preload="auto" controls autoplay>
+        </video>
+    </div>
+</div>

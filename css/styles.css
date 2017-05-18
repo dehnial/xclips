@@ -121,6 +121,7 @@ footer > section {
 
 #sectActivity .capture {
     position: relative;
+    cursor: pointer;
 }
 
 #sectActivity .capture .play-icon {
@@ -170,3 +171,25 @@ footer > section {
     background-color: rgba(0,0,0,0.4);
 }
 
+#videoContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    bottom: 0;
+    align-items: center;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    visibility: hidden;
+}
+
+#videoContainer > #player > video {
+    width: 100%;
+}
+
+#videoContainer > #player {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border-width: 0.3rem;
+}
