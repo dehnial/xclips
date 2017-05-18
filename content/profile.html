@@ -49,11 +49,51 @@
         $("#friends-leaderboard").html(tableHTML);
     });
 
-    // get the activity
-    xapi.getActivity(xapi.currentXUID, function (data) {
-        console.log(data);
+    xapi.getActivity(xapi.currentXUID, function (response) {
         // split clips with achievements
+        var captureItemHTML = "";
+        var activityItemHTML = "";
+        for (var count = 0; count < response.activityItems.length; count++) {
+            var activity = response.activityItems[count];
+            if (activity.activityItemType == "GameDVR") {
+                captureItemHTML += `
+                    <figure class="figure capture">
+                        <img src="${activity.clipThumbnail}" class="img-responsive activity-item"/>
+                        <span class="play-icon"><i class="material-icons">play_circle_outline</i></span>
+                    </figure>`;
+            }
+            else if (activity.activityItemType == "Achievement") {
+                activityItemHTML += `
+                    <figure class="figure achievement">
+                        <img src="${activity.itemImage}" class="img-responsive activity-item"/>
+                        <span class="achievement-title">${activity.achievementName}</span>
+                        <span class="achievement-game">${activity.contentTitle}</span>
+                        <span class="achievement-score">${activity.gamerscore}g</span>
+                    </figure>`;
+            }
+        }
+        $("#captures").html(captureItemHTML);
+        $("#activities").html(activityItemHTML);
     });
+
+    var showActivity = function () {
+        $("#captures").hide();
+        $("#activities").show();
+
+        $("#activity-tab").addClass("active");
+        $("#capture-tab").removeClass("active");
+    }
+
+    var showCaptures = function () {
+        $("#activities").hide();
+        $("#captures").show();
+
+        $("#activity-tab").removeClass("active");
+        $("#capture-tab").addClass("active");
+    }
+
+    $("#activity-tab").click(showActivity);
+    $("#capture-tab").click(showCaptures);
 
 </script>
 
@@ -79,30 +119,18 @@
 
 <section id="sectActivity">
     <ul class="tab tab-block">
-        <li class="tab-item active">
+        <li id="activity-tab" class="tab-item active">
             <a href="#">
             Activity
             </a>
         </li>
-        <li class="tab-item">
+        <li id="capture-tab" class="tab-item">
             <a href="#">
             Captures
             </a>
         </li>
     </ul>
 
-    <!--testing-->
-    <figure class="figure">
-        <img src="img/osx-yosemite-2.jpg" class="img-responsive ..." alt="..." />
-    </figure>
-    <figure class="figure">
-        <img src="img/osx-yosemite-2.jpg" class="img-responsive ..." alt="..." />
-    </figure>
-    <figure class="figure">
-        <img src="img/osx-yosemite-2.jpg" class="img-responsive ..." alt="..." />
-    </figure>
-    <figure class="figure">
-        <img src="img/osx-yosemite-2.jpg" class="img-responsive ..." alt="..." />
-    </figure>
-    <!--testing-->
+    <div id="activities"></div>
+    <div id="captures"></div>
 </section>

@@ -105,8 +105,68 @@ footer > section {
     color: #ae6c3a;
 }
 
+#sectActivity img.activity-item{
+    width: 100%;
+}
+
+#sectActivity #captures {
+    display: none;
+}
+
 @media (max-width: 410px) {
     #profile > #sectFriends .table tr td:last-of-type {
         display: none;
     }
 }
+
+#sectActivity .capture {
+    position: relative;
+}
+
+#sectActivity .capture .play-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    color: #ffffff;
+}
+
+#sectActivity .capture .play-icon i {
+    font-size: 10rem;
+    margin: 0 auto;
+}
+
+#sectActivity .achievement {
+    position: relative;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+.achievement .achievement-title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.achievement .achievement-game {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 4px;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.achievement .achievement-score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px;
+    background-color: rgba(0,0,0,0.4);
+}
+
