@@ -97,13 +97,12 @@
 
     var showVideo = function (url) {
         $("#videoContainer").css("visibility", "visible");
-        $("#player video").html(`<source src="${url}" type="video/mp4">`);
+        $("#player video").attr("src", url);
     }
 
     var hideVideoPlayer = function () {
         $("#videoContainer").css("visibility", "hidden");
         $('video').trigger('pause');
-        /*$("#player video").html("");*/
     }
 
 </script>
