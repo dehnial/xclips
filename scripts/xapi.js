@@ -2,10 +2,7 @@ window.xapi = {
 
     // when searching for a gamertag this should be populated
     currentXUID: '',
-
-    // STEPHEN: 4748119d4f5bba0fe7704367fa683cec11180832
-    // AARON: cd174572090ac70a8c156c800d2f32c587082bd9
-    apiKey: 'cd174572090ac70a8c156c800d2f32c587082bd9',
+    apiKey: '4748119d4f5bba0fe7704367fa683cec11180832',
 
     makeRequest: function (endpoint, success, fail) {
         $.ajax({

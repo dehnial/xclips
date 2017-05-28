@@ -100,6 +100,11 @@
     var hideVideoPlayer = function () {
         $("#videoContainer").css("visibility", "hidden");
         $('video').trigger('pause');
+        if (document.mozExitFullscreen) {
+            document.mozExitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
     }
 
     $("#activity-tab").click(showActivity);

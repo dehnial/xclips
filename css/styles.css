@@ -253,7 +253,7 @@ footer > section {
 }
 
 #gold-lounge > #free .game-container {
-    margin-right: 1rem;
+    /*margin-right: 1rem;*/
     position: relative;
 }
 
@@ -306,4 +306,12 @@ width: 100%;
 
 #free-play #play .game-container img {
     margin: 0 auto;
+}
+
+#gold-lounge #free div:first-of-type {
+margin-right: 0.5rem;
+}
+
+#gold-lounge #free div:last-of-type {
+margin-left: 0.5rem;
 }
