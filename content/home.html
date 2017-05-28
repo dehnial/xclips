@@ -31,7 +31,7 @@
             if (game.DiscountedPriceText && game.DiscountedPriceText == "Free with") {
                 freeHTML += `
                 <div class="game-container">
-                    <img src="${game.TitleImage}"/>
+                    <img class="img-responsive" src="${game.TitleImage}"/>
                     <span>${game.ListPriceText}</span>
                 </div>
                 `;
@@ -39,7 +39,7 @@
             if (game.GoldWeekendText && game.GoldWeekendText == "Free Play Days") {
                 playHTML += `
                 <div class="game-container">
-                    <img src="${game.TitleImage}"/>
+                    <img class="img-responsive" src="${game.TitleImage}"/>
                 </div>
                 `;
             }

@@ -303,3 +303,7 @@ width: 100%;
     background: rgba(100, 100, 100, 0.7);
     color: white;
 }
+
+#free-play #play .game-container img {
+    margin: 0 auto;
+}
