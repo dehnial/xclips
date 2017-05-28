@@ -1,0 +1,69 @@
+<script>
+    var getTitledHeroArt = function (game) {
+        return game.Images.find((img) => img.Purposes.indexOf("TitledHeroArt") > -1).Url;
+    };
+
+    xapi.getLatestGames(function (games) {
+        var gamesHTML = "";
+        games.forEach(function (game) {
+            gamesHTML += `
+            <div>
+                <img data-lazy="${getTitledHeroArt(game)}" class="img-responsive"/>
+            </div>
+            `;
+        }, this);
+
+        $(".carousel").html(gamesHTML);
+
+        $('.carousel').slick({
+            speed: 300,
+            lazyLoad: 'ondemand',
+            autoplay: true,
+            autoplaySpeed: 3000
+        });
+    });
+
+    xapi.getGamesWithGold(function (response) {
+        var games = response.GamesWithGold;
+        var freeHTML = "";
+        var playHTML = "";
+        games.forEach(function (game) {
+            if (game.DiscountedPriceText && game.DiscountedPriceText == "Free with") {
+                freeHTML += `
+                <div class="game-container">
+                    <img src="${game.TitleImage}"/>
+                    <span>${game.ListPriceText}</span>
+                </div>
+                `;
+            }
+            if (game.GoldWeekendText && game.GoldWeekendText == "Free Play Days") {
+                playHTML += `
+                <div class="game-container">
+                    <img src="${game.TitleImage}"/>
+                </div>
+                `;
+            }
+        });
+
+        $("#gold-lounge > #free").html(freeHTML);
+        $("#free-play > #play").html(playHTML);
+    });
+
+</script>
+
+<div id="releases">
+    <div class="carousel">
+    </div>
+    <span>New Releases</span>
+</div>
+
+<div id="discounts">
+    <div id="gold-lounge">
+        <div id="free"></div>
+        <h4>Games with Gold</h4>
+    </div>
+    <div id="free-play">
+        <div id="play"></div>
+        <h4>Free Play Days</h4>
+    </div>
+</div>

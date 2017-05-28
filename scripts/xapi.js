@@ -3,7 +3,9 @@ window.xapi = {
     // when searching for a gamertag this should be populated
     currentXUID: '',
 
-    apiKey: '4748119d4f5bba0fe7704367fa683cec11180832',
+    // STEPHEN: 4748119d4f5bba0fe7704367fa683cec11180832
+    // AARON: cd174572090ac70a8c156c800d2f32c587082bd9
+    apiKey: 'cd174572090ac70a8c156c800d2f32c587082bd9',
 
     makeRequest: function (endpoint, success, fail) {
         $.ajax({
@@ -50,5 +52,4 @@ window.xapi = {
     getFriends: function (xuid, success, fail) {
         this.makeRequest(`/v2/${xuid}/friends`, success, fail);
     },
-
 };
