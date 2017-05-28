@@ -1,0 +1,43 @@
+<script>
+    var showFriend = function (currentXUID) {
+        xapi.currentXUID = currentXUID;
+
+        loader.load("profile");
+    };
+    xapi.getFriends(xapi.currentXUID, function (friends) {
+        friends.sort(function (a, b) {
+            if (a.Gamertag > b.Gamertag)
+                return 1;
+            if (a.Gamertag < b.Gamertag)
+                return -1;
+            return 0;
+        });
+
+        var friendsHTML = "";
+        friends.forEach(function (friend) {
+            friendsHTML += `
+                <tr onclick="showFriend(${friend.id})">
+                    <td class="profile-info">
+                        <figure class="avatar badge ${friend.AccountTier.toLowerCase()}" data-badge="${friend.TenureLevel}">
+                            <img src="${friend.GameDisplayPicRaw}"/>
+                        </figure>
+                    </td>
+                    <td>
+                        ${friend.Gamertag}
+                    </td>
+                     <td class="score">
+                        <span>${friend.Gamerscore}</span>
+                     </td>
+                </tr>
+            `;
+        }, this);
+
+        $("#all-friends").html(friendsHTML);
+    });
+
+</script>
+
+<table class="table">
+    <tbody id="all-friends">
+    </tbody>
+</table>

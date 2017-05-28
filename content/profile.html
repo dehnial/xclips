@@ -92,9 +92,6 @@
         $("#capture-tab").addClass("active");
     }
 
-    $("#activity-tab").click(showActivity);
-    $("#capture-tab").click(showCaptures);
-
     var showVideo = function (url) {
         $("#videoContainer").css("visibility", "visible");
         $("#player video").attr("src", url);
@@ -105,10 +102,16 @@
         $('video').trigger('pause');
     }
 
+    $("#activity-tab").click(showActivity);
+    $("#capture-tab").click(showCaptures);
+    $("#btnFriends").click(function () {
+        loader.load("friends");
+    });
+
 </script>
 
 <div id="profile">
-    <section id="sectProfile">
+    <section id="sectProfile" class="profile-info">
         <figure class="avatar badge">
             <img id="imgGamerpic" />
         </figure>
@@ -123,6 +126,18 @@
         <table class="table">
             <tbody id="friends-leaderboard">
             </tbody>
+            <thead>
+                <tr>
+                    <td>
+                    </td>
+                    <td id="seeMore" colspan="2">
+                        Friends
+                        <button class="btn" id="btnFriends">
+                            More
+                        </button>
+                    </td>
+                </tr>
+            </thead>
         </table>
     </section>
 </div>
