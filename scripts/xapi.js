@@ -35,7 +35,8 @@ window.xapi = {
     },
 
     getLatestGames: function (success, fail) {
-        this.makeRequest(`/v2/latest-xboxone-games`, success, fail);
+        // this.makeRequest(`/v2/latest-xboxone-games`, success, fail);
+        this.makeRequest(`/v2/latest-xbox360-games`, success, fail);
     },
 
     getGamesWithGold: function (success, fail) {
