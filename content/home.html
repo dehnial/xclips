@@ -27,14 +27,16 @@
         var games = response.GamesWithGold;
         var freeHTML = "";
         var playHTML = "";
+        var count = 0;
         games.forEach(function (game) {
-            if (game.DiscountedPriceText && game.DiscountedPriceText == "Free with") {
+            if (game.DiscountedPriceText && game.DiscountedPriceText == "Free with" && count < 2) {
                 freeHTML += `
                 <div class="game-container">
                     <img class="img-responsive" src="${game.TitleImage}"/>
                     <span>${game.ListPriceText}</span>
                 </div>
                 `;
+                count++;
             }
             if (game.GoldWeekendText && game.GoldWeekendText == "Free Play Days") {
                 playHTML += `
