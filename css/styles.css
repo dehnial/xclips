@@ -240,6 +240,7 @@ footer > section {
 
 #videoContainer > #player > video {
     width: 100%;
+    max-width: 900px;
 }
 
 #videoContainer > #player {
