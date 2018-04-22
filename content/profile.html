@@ -166,7 +166,7 @@
 </section>
 
 <div id="videoContainer" onclick="hideVideoPlayer()">
-    <div class="card" id="player">
+    <div class="card" id="player" onclick="event.stopPropagation();">
         <video preload="auto" controls autoplay>
         </video>
     </div>
