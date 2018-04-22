@@ -1,7 +1,6 @@
 <script>
     var getTitledHeroArt = function (game) {
-        debugger;
-        return game.Images.find((img) => img.Purposes.indexOf("TitledHeroArt") > -1).Url;
+        return game.Images.find((img) => img.Purposes.indexOf("WideBackgroundImage") > -1).Url;
     };
 
     xapi.getLatestGames(function (games) {
